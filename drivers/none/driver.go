@@ -88,6 +88,7 @@ func (d *Driver) Restart() error {
 }
 
 func (d *Driver) SetConfigFromFlags(flags drivers.DriverOptions) error {
+	return fmt.Errorf("test none driver")
 	url := flags.String("url")
 
 	if url == "" {

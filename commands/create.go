@@ -222,7 +222,7 @@ func cmdCreateInner(c CommandLine, api libmachine.API) error {
 	driverOpts := getDriverOpts(c, mcnFlags)
 
 	if err := h.Driver.SetConfigFromFlags(driverOpts); err != nil {
-		return fmt.Errorf("Error setting machine configuration from flags provided: %s", err)
+		return fmt.Errorf("Errorasdfasdf setting machine configuration from flags provided: %s", err)
 	}
 
 	if err := api.Create(h); err != nil {

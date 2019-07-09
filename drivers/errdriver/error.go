@@ -40,6 +40,7 @@ func (d *Driver) GetCreateFlags() []mcnflag.Flag {
 }
 
 func (d *Driver) SetConfigFromFlags(flags drivers.DriverOptions) error {
+	return fmt.Errorf("test setconfigformflags")
 	return NotLoadable{d.Name}
 }
 
