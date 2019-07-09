@@ -1,0 +1,4 @@
+package: github.com/docker/machine
+import:
+- package: github.com/azure/go-autorest
+  version: ef394b35ce2f79c266b16ca106258af4b6847b71

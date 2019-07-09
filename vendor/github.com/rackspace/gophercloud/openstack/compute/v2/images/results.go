@@ -11,6 +11,11 @@ type GetResult struct {
 	gophercloud.Result
 }
 
+// DeleteResult represents the result of an image.Delete operation.
+type DeleteResult struct {
+	gophercloud.ErrResult
+}
+
 // Extract interprets a GetResult as an Image.
 func (gr GetResult) Extract() (*Image, error) {
 	if gr.Err != nil {
@@ -46,6 +51,8 @@ type Image struct {
 	Status   string
 
 	Updated string
+	
+	Metadata map[string]string
 }
 
 // ImagePage contains a single page of results from a List operation.

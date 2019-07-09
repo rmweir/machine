@@ -2,12 +2,12 @@ package azureutil
 
 import (
 	"fmt"
+	"github.com/Azure/azure-sdk-for-go/arm/network"
 	"time"
 
 	"github.com/docker/machine/version"
 
 	"github.com/Azure/azure-sdk-for-go/arm/compute"
-	"github.com/Azure/azure-sdk-for-go/arm/network"
 	"github.com/Azure/azure-sdk-for-go/arm/resources/resources"
 	"github.com/Azure/azure-sdk-for-go/arm/resources/subscriptions"
 	"github.com/Azure/azure-sdk-for-go/arm/storage"
