@@ -568,7 +568,7 @@ func (a AzureClient) CreateVirtualMachine(resourceGroup, name, location, size, a
 						Caching:      compute.ReadWrite,
 						CreateOption: compute.FromImage,
 						ManagedDisk:  &compute.ManagedDiskParameters{
-							StorageAccountType: "Premium_LRS",
+							StorageAccountType: "Standard_LRS",
 						},
 					},
 				},

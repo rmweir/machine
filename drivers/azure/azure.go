@@ -31,6 +31,7 @@ const (
 	defaultAzureSubnetPrefix    = "192.168.0.0/16"
 	defaultStorageType          = string(storage.StandardLRS)
 	defaultAzureAvailabilitySet = "docker-machine"
+	defaultAzureManagedDisk	    = false
 )
 
 const (
@@ -46,6 +47,7 @@ const (
 	flAzureSubnet          = "azure-subnet"
 	flAzureSubnetPrefix    = "azure-subnet-prefix"
 	flAzureAvailabilitySet = "azure-availability-set"
+	flAzureManagedDisk	   = "azure-managed-disk"
 	flAzurePorts           = "azure-open-port"
 	flAzurePrivateIPAddr   = "azure-private-ip-address"
 	flAzureUsePrivateIP    = "azure-use-private-ip"
@@ -186,6 +188,11 @@ func (d *Driver) GetCreateFlags() []mcnflag.Flag {
 			Usage:  "Azure Availability Set to place the virtual machine into",
 			EnvVar: "AZURE_AVAILABILITY_SET",
 			Value:  defaultAzureAvailabilitySet,
+		},
+		mcnflag.BoolFlag{
+			Name:   flAzureManagedDisk,
+			Usage:  "Azure Availability Set to place the virtual machine into",
+			EnvVar: "AZURE_MANAGED_DISK",
 		},
 		mcnflag.StringFlag{
 			Name:   flAzureCustomData,
