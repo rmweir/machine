@@ -567,8 +567,8 @@ func (a AzureClient) CreateVirtualMachine(resourceGroup, name, location, size, a
 						Name:         to.StringPtr(fmt.Sprintf(fmtOSDiskResourceName, name)),
 						Caching:      compute.ReadWrite,
 						CreateOption: compute.FromImage,
-						Vhd: &compute.VirtualHardDisk{
-							URI: to.StringPtr(osDiskBlobURL),
+						ManagedDisk:  &compute.ManagedDiskParameters{
+							StorageAccountType: "Premium_LRS",
 						},
 					},
 				},
@@ -594,16 +594,18 @@ func (a AzureClient) GetAvailabilitySet(resourceGroup, name string) (compute.Ava
 func (a AzureClient) CreateAvailabilitySetIfNotExists(ctx *DeploymentContext, resourceGroup, name, location string) error {
 	f := logutil.Fields{"name": name}
 	log.Info("Configuring availadfsability set.", f)
-	as, err := a.availabilitySetsClient().CreateOrUpdate(resourceGroup, name,
+	as, err := a.availabilitySetsClient().CreateOrUpdate(resourceGroup, "asfasdf",
 		compute.AvailabilitySet{
 			Location: to.StringPtr(location),
 			Sku: &compute.Sku{
 				Name: to.StringPtr("Aligned"),
 			},
 			AvailabilitySetProperties: &compute.AvailabilitySetProperties{
-				PlatformFaultDomainCount: to.Int32Ptr(3),
+				PlatformFaultDomainCount: to.Int32Ptr(2),
+				PlatformUpdateDomainCount: to.Int32Ptr(5),
 			},
 		})
+	log.Info("TEST AS: ", *as.Sku.Name)
 	ctx.AvailabilitySetID = to.String(as.ID)
 	return err
 }
