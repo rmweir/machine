@@ -36,7 +36,7 @@ const (
 	machineTag                  = "rancher-nodes"
 	defaultAmiId                = "ami-c60b90d1"
 	defaultRegion               = "us-east-1"
-	defaultInstanceType         = "t2.micro"
+	defaultInstanceType         = "t3.micro"
 	defaultRootSize             = 16
 	defaultVolumeType           = "gp2"
 	defaultZone                 = "a"
